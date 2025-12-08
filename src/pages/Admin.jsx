@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from '../supabaseClient'; // Adjusted path
 import '../css/admin.css';
 
-const supabaseUrl = process.env.VITE_SUPABASE_URL;
-const supabaseKey = process.env.VITE_SUPABASE_KEY;
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 function Admin() {
   const [phrases, setPhrases] = useState([]);

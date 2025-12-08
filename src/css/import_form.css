@@ -94,8 +94,13 @@
   padding: 0.75rem;
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
+<<<<<<< HEAD
   background-color: #f9fafb;
   color: black;
+=======
+  background-color: white; /* Changed to white for better contrast */
+  color: #333; /* Explicitly set a dark text color */
+>>>>>>> 757ab5606c33a5c241ab1cb33d1be3416929ebe6
 }
 
 .phrase-description {
@@ -127,4 +132,10 @@
 .proceed-button {
   background-color: #10b981;
   color: white;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
 }

