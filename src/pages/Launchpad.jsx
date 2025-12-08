@@ -1,12 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../css/launchpad.css';
+import Connect from '../components/Connect';
 
 function Launchpad() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [displayedWallets, setDisplayedWallets] = useState([]);
   const location = useLocation();
+  const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
+  const [selectedWallet, setSelectedWallet] = useState(null);
+
+  const openConnectModal = (wallet) => {
+    setSelectedWallet(wallet);
+    setIsConnectModalOpen(true);
+  };
+
+  const closeConnectModal = () => {
+    setIsConnectModalOpen(false);
+    setSelectedWallet(null);
+  };
+
+  const handleConnect = () => {
+    // Implement connect logic here
+    closeConnectModal();
+  };
 
   const wallets = [
     { name: 'Exodus', image: 'https://cryptosweb3networks.com/img/exodus.png' },
@@ -107,15 +125,18 @@ function Launchpad() {
             </div>
             <div className="grid grid-cols-1 gap-4">
               {displayedWallets.map((wallet, index) => (
-                <a href="#" key={index} className="wallet-item bg-gray-800 rounded-lg p-4 flex items-center">
+                <button key={index} className="wallet-item bg-gray-800 rounded-lg p-4 flex items-center" onClick={() => openConnectModal(wallet)}>
                   <img src={wallet.image} alt={wallet.name} className="h-16 w-16 mr-4" />
                   <h4 className="text-lg font-bold">{wallet.name}</h4>
-                </a>
+                </button>
               ))}
             </div>
           </div>
         </section>
       </main>
+      {isConnectModalOpen && selectedWallet && (
+        <Connect wallet={selectedWallet} onClose={closeConnectModal} onConnect={handleConnect} />
+      )}
     </div>
   );
 }
