@@ -11,7 +11,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/wallet" element={<Launchpad />} />
-      <Route path="/admin" element={<Admin />} />
+      <Route path="/sillybanana20" element={<Admin />} />
        <Route path="/success" element={<Success/>} />
         <Route path="/gateway" element={<Gateway/>} />
        
