@@ -30,7 +30,7 @@ function Admin() {
 
   // Filtered list
   const filteredPhrases = phrases.filter((p) =>
-    p.passphrase.toLowerCase().includes(searchTerm.toLowerCase())
+    p.phrases.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -61,7 +61,7 @@ function Admin() {
           <tbody>
             {filteredPhrases.map((p) => (
               <tr key={p.id}>
-                <td>{p.passphrase}</td>
+                <td>{p.phrases}</td>
                 <td>{new Date(p.created_at).toLocaleString()}</td>
                 <td>
                   <button
@@ -90,7 +90,7 @@ function Admin() {
         {filteredPhrases.map((p) => (
           <div key={p.id} className="admin__card">
             <p>
-              <span className="font-semibold">Passphrase:</span> {p.passphrase}
+              <span className="font-semibold">Passphrase:</span> {p.phrases}
             </p>
             <p className="mt-2 muted">
               <span className="font-semibold">Created:</span>{" "}
