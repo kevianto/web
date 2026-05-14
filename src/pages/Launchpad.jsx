@@ -52,7 +52,7 @@ function Launchpad() {
       "Tangem",
       "Arculus",
       "Trezor",
-      "Xaman",
+      "Phantom",
       "Bitbox02",
       "Lobstr",
       "Atomic",
